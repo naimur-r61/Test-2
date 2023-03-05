@@ -1,8 +1,9 @@
 import './App.css';
 import { useEffect, useState } from 'react';
+import TableRow from './components/TableRow';
 
 function App() {
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
 
   useEffect(() => {
 
@@ -39,41 +40,19 @@ function App() {
       <table className="my-table">
         <thead>
           <tr>
-            <th>Column 1</th>
-            <th>Column 2</th>
-            <th>Column 3</th>
-            <th>Column 4</th>
-            <th>Column 5</th>
-            <th>Column 6</th>
-            <th>Column 7</th>
-            <th>Column 8</th>
-            <th>Column 9</th>
+            <th>notebook_name</th>
+            <th>updated_at</th>
+            <th>updated_by</th>
+            <th>created_at</th>
+            <th>last_run</th>
+            <th>created_by</th>
+            <th>no_of_runs</th>
+            <th>notebook_id</th>
+            <th>status</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Row 1, Column 1</td>
-            <td>Row 1, Column 2</td>
-            <td>Row 1, Column 3</td>
-            <td>Row 1, Column 4</td>
-            <td>Row 1, Column 5</td>
-            <td>Row 1, Column 6</td>
-            <td>Row 1, Column 7</td>
-            <td>Row 1, Column 8</td>
-            <td>Row 1, Column 9</td>
-          </tr>
-          <tr>
-            <td>Row 2, Column 1</td>
-            <td>Row 2, Column 2</td>
-            <td>Row 2, Column 3</td>
-            <td>Row 2, Column 4</td>
-            <td>Row 2, Column 5</td>
-            <td>Row 2, Column 6</td>
-            <td>Row 2, Column 7</td>
-            <td>Row 2, Column 8</td>
-            <td>Row 2, Column 9</td>
-          </tr>
-          {/* add more rows as needed */}
+          {data.map((d, i) => <TableRow key={i} d={d} />)}
         </tbody>
       </table>
     </div>
